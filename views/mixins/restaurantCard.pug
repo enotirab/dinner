@@ -1,0 +1,18 @@
+mixin restaurantCard(restaurant)
+  div.card
+    div.card-header
+      div.header-details
+        div.name=restaurant.name
+
+      img.header-image(src=`${restaurant.image_url}`)
+
+    div.card-body
+      div.edit
+        a(href=`/edit/${restaurant.id}`) Edit
+      div.card-details
+        div.category=restaurant.category
+        div.stars
+            -for (var i = 0; i < restaurant.stars; i++)
+             span.star &#X2b50;
+      div.description
+        p=restaurant.description
