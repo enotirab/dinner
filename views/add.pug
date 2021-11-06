@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  div.form-panel
+    div.header Add New Restaurant
+    form(action="/add" method="post")
+      div.form-input
+        label(for="name") Name
+        input(type="text" id="name" name="name")
+      div.form-input
+        label(for="category") Category
+        select(name="category" id="category" autocomplete="off")
+            each category in restaurantCategories
+              option(value=category ) #{category}
+      div.form-input
+        label(for="stars") Stars
+        select(name="stars" id="stars" autocomplete="off")
+            -for (let i = 1; i <= 5; i++)
+             option(value=i ) #{i}
+      div.form-input
+        label(for="name") Image Url
+        input(type="text" id="image_url" name="image_url")
+
+      div.form-input
+          label(for="description") Description
+          textarea(id="description" name="description" rows=10 cols=40)
+
+      div.button-row
+        a.button.cancel(href=`/`) Cancel
+        button.button.save(type="submit") Save

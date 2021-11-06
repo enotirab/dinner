@@ -3,6 +3,9 @@ extends layout
 block content
   include mixins/restaurantCard
 
-  div.card-container
-    each restaurant in restaurants
-      +restaurantCard(restaurant)
+  div.container
+    div.add-button-row
+      a.button.save(href="/add") Add New Restaurant
+    div.card-container
+      each restaurant in restaurants
+        +restaurantCard(restaurant)
